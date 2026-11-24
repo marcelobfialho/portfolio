@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portefólio de Marcelo Branco Fialho: marketing, media, comunicação, conteúdos digitais, produção áudio e análise de performance.">
+  <meta name="theme-color" content="#101114">
+  <title>Marcelo Branco Fialho | Marketing & Media</title>
+  <style>
+    :root {
+      --bg: #101114; --panel: #17191e; --text: #f2f1ed; --muted: #a3a5ad;
+      --line: rgba(255,255,255,.13); --accent: #d9ff72; --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(16,17,20,.86); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    nav { min-height: 76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -.08em; }
+    .logo span { color: var(--accent); }
+    .navlinks { display:flex; gap:25px; color:var(--muted); font-size:.82rem; }
+    .navlinks a:hover, .textlink:hover { color:var(--accent); }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.17em; font-size:.72rem; font-weight:700; }
+    .hero { min-height: 690px; display:grid; align-items:center; padding:100px 0 110px; }
+    .hero-grid { display:grid; grid-template-columns: 1.35fr .65fr; gap:70px; align-items:end; }
+    h1 { font-size:clamp(3.2rem, 8vw, 6.9rem); line-height:.98; letter-spacing:-.075em; margin:22px 0 28px; max-width:850px; }
+    h1 em { color:var(--accent); font-style:normal; }
+    .lead { color:#c3c4ca; font-size:clamp(1.05rem, 2vw, 1.28rem); max-width:660px; }
+    .hero-aside { border-left:1px solid var(--line); padding:8px 0 8px 25px; color:var(--muted); font-size:.9rem; }
+    .hero-aside strong { display:block; color:var(--text); font-size:1rem; margin-bottom:7px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:35px; }
+    .btn { display:inline-flex; align-items:center; gap:12px; padding:13px 18px; border:1px solid var(--line); border-radius:3px; font-size:.85rem; font-weight:650; transition:.2s; }
+    .btn.primary { background:var(--accent); color:#11130d; border-color:var(--accent); }
+    .btn:hover { transform:translateY(-2px); }
+    section { padding:100px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:48px; }
+    h2 { font-size:clamp(2.2rem, 5vw, 4rem); letter-spacing:-.065em; line-height:1; margin:12px 0 0; }
+    .section-note { max-width:330px; color:var(--muted); font-size:.9rem; }
+    .about-grid { display:grid; grid-template-columns: .8fr 1.2fr; gap:80px; }
+    .about-statement { font-size:1.6rem; line-height:1.25; letter-spacing:-.04em; }
+    .about-copy { color:#b9bbc2; max-width:680px; }
+    .about-copy p { margin-top:0; }
+    .taglist { display:flex; flex-wrap:wrap; gap:9px; margin-top:25px; }
+    .tag { border:1px solid var(--line); color:#c8c9ce; padding:7px 11px; font-size:.75rem; border-radius:2px; }
+    .services { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .service { padding:30px; min-height:210px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .service .num { color:var(--accent); font-size:.75rem; }
+    .service h3 { font-size:1.35rem; letter-spacing:-.04em; margin:28px 0 8px; }
+    .service p { color:var(--muted); font-size:.9rem; max-width:420px; margin:0; }
+    .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .project { background:var(--panel); border:1px solid var(--line); min-height:310px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; transition:.2s; }
+    .project:hover { border-color:rgba(217,255,114,.6); transform:translateY(-3px); }
+    .project-top { display:flex; justify-content:space-between; color:var(--muted); font-size:.75rem; }
+    .project h3 { font-size:2rem; letter-spacing:-.06em; margin:45px 0 10px; }
+    .project p { color:#b8bac1; max-width:480px; font-size:.9rem; margin:0; }
+    .project .scope { color:var(--accent); font-size:.75rem; margin-top:22px; }
+    .spotify-embed { margin-top:24px; width:100%; overflow:hidden; border-radius:12px; }
+    .spotify-embed iframe { display:block; width:100%; height:152px; border:0; border-radius:12px; }
+    .video-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .video-card { background:var(--panel); border:1px solid var(--line); padding:14px; }
+    .video-frame { position:relative; width:100%; aspect-ratio:16/9; background:#08090b; overflow:hidden; }
+    .video-frame.short { aspect-ratio:9/16; max-width:300px; margin:0 auto; }
+    .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .video-card h3 { font-size:1.12rem; letter-spacing:-.035em; margin:16px 0 5px; }
+    .video-card p { color:var(--muted); font-size:.82rem; margin:0; }
+    .video-meta { color:var(--accent); font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; margin-top:12px; }
+    .experience-grid { display:grid; grid-template-columns:.7fr 1.3fr; gap:70px; }
+    .role { border-top:1px solid var(--line); padding:24px 0; display:grid; grid-template-columns:1fr 2fr; gap:30px; }
+    .role time { color:var(--muted); font-size:.8rem; }
+    .role h3 { margin:0 0 5px; font-size:1.2rem; }
+    .role p { margin:0; color:var(--muted); font-size:.9rem; }
+    .education { margin-top:48px; }
+    .education-item { padding:17px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:20px; }
+    .education-item span { color:var(--muted); font-size:.82rem; text-align:right; }
+    .contact { padding:110px 0 80px; }
+    .contact h2 { max-width:850px; font-size:clamp(3rem,7vw,6rem); }
+    .contact-bottom { margin-top:50px; display:flex; justify-content:space-between; align-items:end; gap:25px; border-top:1px solid var(--line); padding-top:22px; color:var(--muted); font-size:.82rem; }
+    footer { border-top:1px solid var(--line); padding:22px 0; color:var(--muted); font-size:.75rem; }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 34px, var(--max)); }
+      nav { min-height:68px; } .navlinks { gap:13px; font-size:.72rem; }
+      .navlinks a:nth-child(2), .navlinks a:nth-child(3) { display:none; }
+      .hero { min-height:auto; padding:95px 0 85px; }
+      .hero-grid, .about-grid, .experience-grid { grid-template-columns:1fr; gap:35px; }
+      .hero-aside { max-width:380px; }
+      section { padding:75px 0; }
+      .section-head { display:block; } .section-note { margin-top:18px; }
+      .services, .projects, .video-grid { grid-template-columns:1fr; }
+      .service { min-height:175px; }
+      .project { min-height:280px; }
+      .role { grid-template-columns:1fr; gap:8px; }
+      .education-item { display:block; } .education-item span { display:block; text-align:left; margin-top:4px; }
+      .contact-bottom { display:block; } .contact-bottom div + div { margin-top:15px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="#inicio">MF<span>.</span></a>
+      <div class="navlinks">
+        <a href="#sobre">Sobre</a><a href="#areas">Áreas</a><a href="#projetos">Projetos</a><a href="#percurso">Percurso</a><a href="#contacto">Contacto ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" style="border-top:0">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Marketing · Media · Comunicação</div>
+        <h1>Estratégia com dados.<br><em>Comunicação</em> com impacto.</h1>
+        <p class="lead">Sou Marcelo Branco Fialho. Trabalho na intersecção entre marketing, media e conteúdos, ligando pensamento estratégico à execução criativa.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projetos">Explorar projetos <span>↗</span></a>
+          <a class="btn" href="#contacto">Entrar em contacto <span>↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <strong>Um perfil entre duas dimensões.</strong>
+        Da análise de desempenho à produção de conteúdos, da estratégia à voz. Interessa-me transformar ideias em experiências de comunicação relevantes.
+      </aside>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / Sobre</div><h2>O meu ponto<br>de encontro.</h2></div>
+        <p class="section-note">Comunicação e marketing vistos de forma integrada: compreender, criar, medir e melhorar.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-statement">Gosto de perceber o que está por detrás dos resultados e de dar forma a ideias que merecem ser ouvidas.</div>
+        <div class="about-copy">
+          <p>O meu percurso combina experiência em rádio e media com trabalho em gestão comercial, parcerias, conteúdos digitais e análise de performance.</p>
+          <p>Na RDS, participo em diferentes etapas do trabalho de comunicação: desde o desenvolvimento de propostas e campanhas à produção de áudio, podcasts e conteúdos para plataformas digitais. Em paralelo, aprofundo conhecimentos em Data-Driven Marketing e Marketing Intelligence.</p>
+          <div class="taglist">
+            <span class="tag">Marketing & estratégia</span><span class="tag">Media & rádio</span><span class="tag">Conteúdos digitais</span><span class="tag">Produção áudio</span><span class="tag">Analytics</span><span class="tag">Parcerias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">02 / Áreas de trabalho</div><h2>O que faço.</h2></div>
+        <p class="section-note">Competências que se cruzam ao longo de um projeto, do planeamento à concretização.</p>
+      </div>
+      <div class="services">
+        <article class="service"><div class="num">01 —</div><h3>Marketing & performance</h3><p>Planeamento, acompanhamento de campanhas, leitura de métricas, análise de audiências e apoio à tomada de decisão.</p></article>
+        <article class="service"><div class="num">02 —</div><h3>Conteúdos & comunicação</h3><p>Conceção de rubricas, copywriting, guiões, conteúdos para redes sociais e comunicação de marca.</p></article>
+        <article class="service"><div class="num">03 —</div><h3>Media & produção áudio</h3><p>Locução, apresentação, produção e edição de áudio, podcasts e formatos editoriais para rádio e plataformas digitais.</p></article>
+        <article class="service"><div class="num">04 —</div><h3>Comercial & parcerias</h3><p>Prospeção, desenvolvimento de propostas, negociação e acompanhamento de clientes e parceiros.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">03 / Seleção de trabalho</div><h2>Projetos em destaque.</h2></div>
+        <p class="section-note">Uma seleção inicial de projetos e formatos desenvolvidos no contexto de media e comunicação.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-top"><span>01 / Podcast</span><span>RDS × Grupo H Saúde</span></div>
+          <div>
+            <h3>Hora H</h3>
+            <p>Podcast de saúde da RDS. Envolvimento na preparação de temas e guiões, apresentação, gravação e comunicação dos episódios.</p>
+            <div class="scope">Conteúdo · Voz · Podcast · Distribuição</div>
+            <div class="spotify-embed">
+              <iframe
+                title="Ouvir o podcast Hora H no Spotify"
+                src="https://open.spotify.com/embed/show/29lBlt6rbvHNy5aTzEvBmA?utm_source=generator&amp;si=4ad913e0d0d54364"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span>02 / Rádio</span><span>RDS</span></div>
+          <div><h3>Sem Guião</h3><p>Programa de rádio com conteúdos culturais, música e momentos de conversa. Participação na preparação e apresentação de conteúdos.</p><div class="scope">Rádio · Apresentação · Conteúdos editoriais</div></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span>03 / Digital</span><span>RDS</span></div>
+          <div><h3>Conteúdos RDS</h3><p>Criação e adaptação de conteúdos para redes sociais, vídeos, rubricas, passatempos e iniciativas de comunicação da estação.</p><div class="scope">Social media · Copywriting · Vídeo · Campanhas</div></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><span>04 / Digital & dados</span><span>RDS</span></div>
+          <div><h3>Performance digital</h3><p>Acompanhamento de plataformas digitais, conteúdos no WordPress, métricas de audiência e análise de desempenho.</p><div class="scope">WordPress · Google Analytics 4 · SEO · Reporting</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="audiovisual">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">04 / Produção audiovisual</div><h2>Ideia, texto e execução.</h2></div>
+        <p class="section-note">Uma seleção de vídeos concebidos e editados por mim. Em alguns projetos, assegurei também a locução e a voz-off.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/8z1ozLHiOSY" title="Homenagem Ronaldo | Rádio RDS" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Homenagem Ronaldo</h3>
+          <p>Vídeo para a Rádio RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/FYg95ukqgIw" title="Apoio seleção | Rádio RDS" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Apoio à Seleção</h3>
+          <p>Vídeo para a Rádio RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame short"><iframe src="https://www.youtube-nocookie.com/embed/m_ni5poa7EE" title="Vídeo curto RDS 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Conteúdo audiovisual 03</h3>
+          <p>Vídeo curto produzido para a RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame short"><iframe src="https://www.youtube-nocookie.com/embed/XrGCSUfnZuM" title="Vídeo curto RDS 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Conteúdo audiovisual 04</h3>
+          <p>Vídeo curto produzido para a RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame short"><iframe src="https://www.youtube-nocookie.com/embed/BfYPKH6_Q0Q" title="Vídeo curto RDS 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Conteúdo audiovisual 05</h3>
+          <p>Vídeo curto produzido para a RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame short"><iframe src="https://www.youtube-nocookie.com/embed/nS8O_LnBFGo" title="Vídeo curto RDS 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <h3>Conteúdo audiovisual 06</h3>
+          <p>Vídeo curto produzido para a RDS.</p>
+          <div class="video-meta">Conceito · Texto · Produção · Edição</div>
+        </article>
+      </div>
+      <p class="section-note" style="margin-top:22px;">A locução e a voz-off são identificadas por projeto quando aplicável.</p>
+    </div>
+  </section>
+
+  <section id="percurso">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">05 / Percurso</div><h2>Experiência & formação.</h2></div>
+        <p class="section-note">Uma base em comunicação, experiência prática em media e especialização em marketing orientado por dados.</p>
+      </div>
+      <div class="experience-grid">
+        <div><div class="eyebrow">Experiência profissional</div></div>
+        <div>
+          <div class="role">
+            <time>Desde outubro de 2025</time>
+            <div><h3>RDS — Rádio</h3><p>Gestão comercial e parcerias, conteúdos digitais, produção áudio e podcasts. Locução e apresentação de conteúdos, incluindo emissão regular.</p></div>
+          </div>
+          <div class="education">
+            <div class="eyebrow">Formação académica</div>
+            <div class="education-item"><div><strong>Mestrado em Data-Driven Marketing</strong><br>Marketing Intelligence · NOVA IMS</div><span>Em curso</span></div>
+            <div class="education-item"><div><strong>Licenciatura em Ciências da Comunicação</strong><br>Universidade Autónoma de Lisboa</div><span>Concluída</span></div>
+            <div class="education-item"><div><strong>CTeSP em Comunicação Digital</strong></div><span>Concluído</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <div class="eyebrow">06 / Contacto</div>
+      <h2>Vamos pôr boas ideias em movimento?</h2>
+      <p class="lead">Estou disponível para conversar sobre projetos, colaboração e novas oportunidades na área do marketing e dos media.</p>
+      <div class="actions">
+        <!-- Substituir pelo endereço de email profissional -->
+        <a class="btn primary" href="mailto:O-TEU-EMAIL">Enviar email ↗</a>
+        <!-- Substituir pelo URL do perfil LinkedIn -->
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <div class="contact-bottom"><div>Marcelo Branco Fialho<br>Portugal</div><div>Marketing · Media · Comunicação</div></div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year">2026</span> Marcelo Branco Fialho. Todos os direitos reservados.</div></footer>
+</body>
+</html>
